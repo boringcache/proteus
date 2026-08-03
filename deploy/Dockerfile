@@ -37,7 +37,7 @@ COPY crates ./crates
 ARG BUILDARCH
 # Dioxus supplies its own workspace wrapper, so only this command clears the
 # BoringCache-injected compiler wrapper. The target mount preserves its output.
-RUN --mount=type=cache,target=/src/target,id=proteus-v2-target-ui-${BUILDARCH},sharing=locked \
+RUN --mount=type=cache,target=/src/target,id=proteus-target-ui-${BUILDARCH},sharing=locked \
     RUSTC_WRAPPER= dx build -p proteus-ui --platform web --release \
     && mkdir -p crates/proteus-ui/dist \
     && cp -a target/dx/proteus-ui/release/web/public/. crates/proteus-ui/dist/
@@ -53,7 +53,7 @@ COPY crates ./crates
 COPY --from=ui /src/crates/proteus-ui/dist ./crates/proteus-ui/dist
 
 ARG TARGETARCH
-RUN --mount=type=cache,target=/src/target,id=proteus-v2-target-controller-${TARGETARCH},sharing=locked \
+RUN --mount=type=cache,target=/src/target,id=proteus-target-controller-${TARGETARCH},sharing=locked \
     cargo build --release -p proteus-controller \
     && if [ -n "${RUSTC_WRAPPER:-}" ]; then sccache --show-stats; fi \
     && cp target/release/proteus-controller /src/proteus-controller \
