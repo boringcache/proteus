@@ -15,6 +15,7 @@ use crate::controllers::ControllerSet;
 
 #[tokio::main]
 async fn main() -> Result<()> {
+    // Rolling cache validation: source-only change with no runtime effect.
     init_tracing()?;
 
     let client = kube::Client::try_default()
