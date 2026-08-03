@@ -3,7 +3,7 @@ mod controllers;
 mod error;
 mod restore;
 
-// Rolling cache validation: source-only change with no runtime effect.
+// Matched rolling cache validation: source-only change with no runtime effect.
 use std::net::SocketAddr;
 use std::time::Duration;
 
