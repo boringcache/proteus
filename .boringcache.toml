@@ -4,8 +4,8 @@ workspace = "boringcache/proteus"
 metadata-hints = ["project=proteus", "workflow=image"]
 
 [adapters.docker]
-tag = "proteus-image"
+tag = "proteus-image-main"
 
 [adapters.sccache]
-tag = "proteus-rust"
+tag = "proteus-rust-main"
 metadata-hints = ["tool=sccache", "workflow=image"]
