@@ -1,4 +1,10 @@
-workspace = "boringcache/proteus"
+workspace = "craftingtech/proteus"
+
+[proxy]
+metadata-hints = ["project=proteus"]
 
 [adapters.docker]
-tag = "proteus-image"
+tag = "proteus-image-main"
+
+[adapters.sccache]
+tag = "proteus-rust-main"
