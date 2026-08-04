@@ -3,7 +3,7 @@ name: check
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, proteus-fork-validation]
     tags: ["v0.0.0-craftingtech-workspace-validation.*"]
 
 concurrency:
