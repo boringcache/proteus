@@ -84,7 +84,7 @@ jobs:
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=image,name=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }},push-by-digest=true,name-canonical=true,push=true
-          docker-tool-cache: sccache
+          docker-tool-cache: sccache:proteus-rust-main-image
           fail-on-cache-error: false
           metadata-hints: workflow=image
         env:

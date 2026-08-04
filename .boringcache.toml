@@ -7,4 +7,4 @@ metadata-hints = ["project=proteus"]
 tag = "proteus-image-main"
 
 [adapters.sccache]
-tag = "proteus-rust-main"
+tag = "proteus-rust-main-check"
