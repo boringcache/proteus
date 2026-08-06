@@ -3,7 +3,7 @@ mod controllers;
 mod error;
 mod restore;
 
-// Fork-only rolling-cache validation marker; no runtime behavior changes.
+// Fork-only rolling-cache validation marker v2; no runtime behavior changes.
 use std::net::SocketAddr;
 use std::time::Duration;
 
