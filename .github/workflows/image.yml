@@ -2,7 +2,7 @@ name: image
 
 on:
   push:
-    branches: [main]
+    branches: [main, proteus-pr-bench]
     tags: ["v*"]
 
 concurrency:

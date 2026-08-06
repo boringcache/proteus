@@ -3,7 +3,7 @@ name: check
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, proteus-pr-bench]
 
 concurrency:
   group: check-${{ github.workflow }}-${{ github.ref }}
