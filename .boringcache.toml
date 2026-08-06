@@ -8,3 +8,6 @@ tag = "proteus-image-main"
 
 [adapters.sccache]
 tag = "proteus-rust-main-check"
+
+[profiles.check]
+entries = ["cargo-target", "cargo-registry", "cargo-git"]

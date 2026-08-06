@@ -39,11 +39,12 @@ jobs:
 
       - name: Cache Rust with BoringCache
         if: env.BORINGCACHE_ENABLED == 'true'
-        uses: boringcache/one@62d929848c7c2f600dc721a849794f2cdca9c6cc # v1.16.7
+        uses: boringcache/one@366e1aa37c271014d69aa6e1a12df57c472fdf5d # v1.16.9
         with:
           trust-policy: auto
           setup: none
           mode: sccache
+          cache-profiles: check
           metadata-hints: workflow=check
         env:
           BORINGCACHE_RESTORE_TOKEN: ${{ secrets.BORINGCACHE_RESTORE_TOKEN }}
