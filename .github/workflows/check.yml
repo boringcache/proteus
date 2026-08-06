@@ -39,7 +39,7 @@ jobs:
 
       - name: Cache Rust with BoringCache
         if: env.BORINGCACHE_ENABLED == 'true'
-        uses: boringcache/one@21176161fd8a824661e1cd320236db82f7c75291 # one-canary-5bab62ee97cd
+        uses: boringcache/one@b372edd91cda127cb03c64967df35c3836d47f2a # v1.17.0
         with:
           trust-policy: auto
           setup: none
@@ -49,7 +49,6 @@ jobs:
         env:
           BORINGCACHE_RESTORE_TOKEN: ${{ secrets.BORINGCACHE_RESTORE_TOKEN }}
           BORINGCACHE_SAVE_TOKEN: ${{ github.event_name != 'pull_request' && secrets.BORINGCACHE_SAVE_TOKEN || '' }}
-          BORINGCACHE_ARCHIVE_GRAPH_WRITES: "1"
 
       - name: Cache Rust with GitHub Actions
         if: env.BORINGCACHE_ENABLED != 'true'
