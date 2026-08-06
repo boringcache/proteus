@@ -73,7 +73,7 @@ jobs:
       - name: Build and push with BoringCache
         if: env.BORINGCACHE_ENABLED == 'true'
         id: build_boringcache
-        uses: boringcache/one@62d929848c7c2f600dc721a849794f2cdca9c6cc # v1.16.7
+        uses: boringcache/one@366e1aa37c271014d69aa6e1a12df57c472fdf5d # v1.16.9
         with:
           trust-policy: auto
           setup: none
@@ -85,12 +85,12 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           outputs: type=image,name=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }},push-by-digest=true,name-canonical=true,push=true
           docker-tool-cache: sccache:proteus-rust-main-image
+          docker-mount-cache: true
           fail-on-cache-error: false
           metadata-hints: workflow=image
         env:
           BORINGCACHE_RESTORE_TOKEN: ${{ secrets.BORINGCACHE_RESTORE_TOKEN }}
           BORINGCACHE_SAVE_TOKEN: ${{ github.event_name != 'pull_request' && secrets.BORINGCACHE_SAVE_TOKEN || '' }}
-          BORINGCACHE_BUILDKIT_MOUNTCACHE_OFFLOADER: "1"
 
       - name: Build and push with GitHub Actions cache
         if: env.BORINGCACHE_ENABLED != 'true'
